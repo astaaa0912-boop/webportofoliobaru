@@ -1,9 +1,16 @@
+<?php
+session_start();
+if ($_SESSION['role'] != "mahasiswa") {
+    header("Location: login.php");
+}
+?>
+
 <!doctype html>
 <html lang="id">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Dashboard Mhs</title>
+  <title></title>
   <link rel="stylesheet" href="dashboard_mhs.css">
 </head>
 <body>
@@ -17,11 +24,11 @@
     </div>
 
     <nav class="nav">
-      <a href="dashboard_mhs.html" class="nav-item">Dashboard Mahasiswa</a>
+      <a href="dashboard_mahasiswa.php" class="nav-item">Dashboard Mahasiswa</a>
       <a href="#proyek-saya" class="nav-item">Proyek Saya</a>
       <a href="#" class="nav-item">Penilaian</a>
       <a href="profilemhs.html" class="nav-item">Profil</a>
-      <a href="pengaturanmhs.html" class="nav-item">Pengaturan</a>
+      <a href="pengaturanmhs.php" class="nav-item">Pengaturan</a>
     </nav>
 
     <div class="sidebar-bottom">
@@ -131,7 +138,5 @@
       </div>
     </section>
   </main>
-
-<script src="dashboard_mhs.js"></script>
 </body>
 </html>
