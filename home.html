@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Portofolio Polibatam</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <style>
+        body {
+            background-color: #f6f8fc;
+            overflow-x: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* --- SIDEBAR STYLING (Identik Dashboard) --- */
+        #sidebar {
+            width: 250px;
+            height: 100vh;
+            background: #fff;
+            position: fixed;
+            left: 0;
+            top: 0;
+            padding: 20px;
+            border-right: 1px solid #e5e5e5;
+            transition: all 0.3s ease;
+            z-index: 2000;
+        }
+
+        /* State saat sidebar disembunyikan (Desktop) */
+        #sidebar.hide {
+            margin-left: -250px;
+        }
+
+        #sidebar .logo-section {
+            padding: 10px 15px;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 20px;
+        }
+
+        #sidebar a {
+            display: block;
+            padding: 12px 15px;
+            border-radius: 8px;
+            color: #444;
+            text-decoration: none;
+            margin-bottom: 6px;
+            transition: 0.2s;
+            font-size: 0.95rem;
+        }
+
+        #sidebar a:hover, #sidebar a.active {
+            background: #e9f1ff;
+            color: #0d6efd;
+            font-weight: 500;
+        }
+
+        #sidebar i {
+            font-size: 1.1rem;
+        }
+
+        .sidebar-auth {
+            margin-top: 30px;
+            padding: 0 10px;
+        }
+
+        /* --- MAIN CONTENT STYLING --- */
+        #main-content {
+            margin-left: 250px;
+            transition: all 0.3s ease;
+            min-height: 100vh;
+        }
+
+        /* State saat konten meluas (Desktop) */
+        #main-content.full {
+            margin-left: 0;
+        }
+
+        /* Topbar Biru Gelap */
+        .topbar {
+            height: 60px;
+            background: #243b64;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .toggle-btn {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 0;
+            line-height: 1;
+        }
+
+        /* --- UI COMPONENTS --- */
+        .hero {
+            background: linear-gradient(rgba(36, 59, 100, 0.8), rgba(36, 59, 100, 0.8)), url('Gedung.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 45vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .team-card img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #0d6efd;
+            margin-bottom: 15px;
+        }
+
+        /* Responsive Mobile */
+        @media (max-width: 991.98px) {
+            #sidebar {
+                margin-left: -250px;
+            }
+            #sidebar.active {
+                margin-left: 0;
+                box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+            }
+            #main-content {
+                margin-left: 0 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="sidebar">
+        <div class="logo-section d-flex justify-content-between align-items-center">
+            <div>
+                <img src="logo.png" alt="Logo" style="width: 100px;" class="me-2">
+                <span class="fw-bold text-primary h5 m-0"></span>
+            </div>
+            <button class="btn-close d-lg-none" onclick="toggleSidebar()"></button>
+        </div>
+
+        <div class="menu-list">
+            <a href="#home" class="active"><i class="bi bi-house-door me-3"></i>Home</a>
+            <a href="#info"><i class="bi bi-people me-3"></i>Info Tim</a>
+            <a href="#tentang"><i class="bi bi-info-circle me-3"></i>Tentang</a>
+            <a href="#kontak"><i class="bi bi-telephone me-3"></i>Kontak</a>
+        </div>
+
+        <div class="sidebar-auth">
+            <button class="btn btn-outline-primary w-100 mb-2 btn-sm" onclick="window.location.href='login.php'">Login</button>
+            <button class="btn btn-primary w-100 btn-sm" onclick="window.location.href='register.php'">Registrasi</button>
+        </div>
+    </nav>
+
+    <div id="main-content">
+        
+        <header class="topbar">
+            <button class="toggle-btn me-3" onclick="toggleSidebar()" title="Toggle Menu">
+                <i class="bi bi-list"></i>
+            </button>
+            <span class="fw-semibold">MyPBL HUB</span>
+        </header>
+
+        <section class="hero" id="home">
+            <div class="container">
+                <h1 class="display-5 fw-bold mb-2">Selamat Datang di MyPBL HUB</h1>
+                <p class="lead">MyPBL HUB</p>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="public_projects.php" class="btn btn-primary btn-explore shadow-lg">
+                        <i class="bi bi-eye me-2"></i>Lihat Proyek Mahasiswa
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="info" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-5 fw-bold">INFORMASI TIM</h2>
+                <div class="row g-4 justify-content-center text-center">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card border-0 shadow-sm p-4 team-card h-100">
+                            <img src="DEFAN.jpg" alt="Defan" class="mx-auto">
+                            <h6>Defanny Zikry Lalela</h6>
+                            <p class="text-muted small mb-2">3312511139</p>
+                            <a href="mailto:defanny322@gmail.com" class="btn btn-sm btn-light border text-primary w-100">defanny322@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card border-0 shadow-sm p-4 team-card h-100">
+                            <img src="FAHREZI.jpg" alt="Fahrezi" class="mx-auto">
+                            <h6>Fahrezi Falchah Fauzan</h6>
+                            <p class="text-muted small mb-2">3312511046</p>
+                            <a href="mailto:Fahrezyfz1811@gmail.com" class="btn btn-sm btn-light border text-primary w-100">Fahrezyfz1811@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card border-0 shadow-sm p-4 team-card h-100">
+                            <img src="FATHIR.jpg" alt="Fahrezi" class="mx-auto">
+                            <h6>Fathir Maretho Andrinov</h6>
+                            <p class="text-muted small mb-2">3312511047</p>
+                            <a href="mailto:fathirmareto@gmail.com" class="btn btn-sm btn-light border text-primary w-100">fathirmareto@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card border-0 shadow-sm p-4 team-card h-100">
+                            <img src="SAMUEL.jpg" alt="Fahrezi" class="mx-auto">
+                            <h6>Samuel Ambar Pasaribu</h6>
+                            <p class="text-muted small mb-2">3312511048</p>
+                            <a href="mailto:pasaribusamuelambar@gmail.com" class="btn btn-sm btn-light border text-primary w-100">pasaribusamuelambar@gmail.com</a>
+                        </div>
+            </div>
+        </section>
+
+        <section id="tentang" class="bg-white py-5">
+            <div class="container text-center">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <h2 class="fw-bold mb-4">TENTANG</h2>
+                        <p class="text-muted">Platform ini dirancang untuk menampilkan karya terbaik Mahasiswa Politeknik Negeri Batam. Memudahkan Dosen dalam melakukan monitoring dan penilaian proyek secara transparan.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer id="kontak" class="bg-dark text-white py-5">
+            <div class="container text-center text-md-start">
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <h5 class="fw-bold mb-3">KONTAK</h5>
+                        <p class="small mb-2"><i class="bi bi-geo-alt-fill me-2 text-primary"></i> Jl. Ahmad Yani, Batam Center, Kota Batam</p>
+                        <p class="small"><i class="bi bi-envelope-fill me-2 text-primary"></i> info@polibatam.ac.id</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.getElementById('main-content');
+            
+            if (window.innerWidth >= 992) {
+                // Toggle Desktop: Menggeser konten utama
+                sidebar.classList.toggle('hide');
+                mainContent.classList.toggle('full');
+            } else {
+                // Toggle Mobile: Sidebar muncul di atas konten
+                sidebar.classList.toggle('active');
+            }
+        }
+
+        // Aktifkan link menu saat diklik
+        const navLinks = document.querySelectorAll('#sidebar a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Tutup sidebar di mobile setelah klik menu
+                if (window.innerWidth < 992) {
+                    toggleSidebar();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
